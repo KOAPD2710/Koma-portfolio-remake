@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Koma Portfolio</title>
+    <link rel="icon" href="/favicon.png">
+    <meta name="title" content="" />
+    <meta name="description" content="" />
+
+    <link rel="preload" href="css/style.scss" as="style" />
+    <link rel="stylesheet" href="css/style.scss">
+    <link rel="stylesheet" href="../public/fonts/font.css">
+    <!-- <link rel="preload" href="../public/imgs/hero-banner-full.jpg" as="image"> -->
+    <!-- <link rel="preload" href="../public/fonts/NeueMachina-Bold.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="../public/fonts/NeueMachina-Regular.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="../public/fonts/NeueMachina-Medium.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="../public/fonts/NeueMachina-Ultrabold.woff" as="font" type="font/woff" crossorigin> -->
+
+</head>
+<body data-barba="wrapper">
+
+    <header class="header">
+        <div class="container">
+            <div class="header-wrap">
+                <div class="header-logo">
+                    <a href="/" class="header-logo-link">
+                        <svg height="100%" viewBox="0 0 152 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_16_2)" class="logoK">
+                                <path d="M21.1646 18.0638C22.627 18.7294 24.1154 19.0427 25.4994 19.6953C31.9755 22.7363 35.6052 27.7874 36.4408 34.8876C36.5844 36.0753 36.3102 36.4799 35.0046 36.4669C23.8412 36.4147 12.691 36.4147 1.52761 36.4669C0.261131 36.4669 0 36.1014 0 34.9007C0.0522261 23.7544 0.0522261 12.6081 0 1.44876C0 0.261037 0.313357 0 1.47539 0C12.691 0.0391556 23.8935 0.0391556 35.109 0C36.1797 0 36.5975 0.20883 36.4538 1.35739C35.5529 8.92747 31.7013 14.2526 24.5855 17.124C24.011 17.359 23.3843 17.4373 22.7837 17.607C22.2483 17.7505 21.713 17.9072 21.1646 18.0638Z" fill="currentColor"/>
+                            </g>
+                            <g clip-path="url(#clip1_16_2)" class="logoO">
+                                <path d="M54.9224 36.48C45.4787 36.7417 36.4797 29.0479 36.4797 18.384C36.4797 8.00786 44.3146 0.026233 54.6216 6.37496e-05C64.7455 -0.0261055 72.8419 8.00786 72.9597 18.0961C73.0774 28.5507 64.3138 36.6109 54.9224 36.48Z" fill="currentColor"/>
+                            </g>
+                            <g clip-path="url(#clip2_16_2)" class="logoM">
+                                <path d="M94.0637 15.3151C94.7293 13.8528 95.0425 12.3643 95.6951 10.9803C98.7362 4.50429 103.787 0.86152 110.887 0.0389587C112.075 -0.104663 112.48 0.169524 112.467 1.47518C112.415 12.6385 112.415 23.7888 112.467 34.9521C112.467 36.2186 112.101 36.4797 110.901 36.4797C99.7412 36.4406 88.5949 36.4275 77.4356 36.4797C76.2609 36.4797 75.9999 36.1664 75.9999 35.0044C76.039 23.7888 76.039 12.5863 75.9999 1.37073C75.9999 0.300089 76.2218 -0.11772 77.3703 0.0259022C84.9404 0.926803 90.2656 4.77848 93.137 11.8943C93.3719 12.4688 93.4502 13.0955 93.6199 13.6961C93.7635 14.2314 93.9201 14.7667 94.0767 15.3151H94.0637Z" fill="currentColor"/>
+                            </g>
+                            <g clip-path="url(#clip3_16_2)" class="logoA">
+                                <path d="M133.61 36.4542C128.089 36.4542 122.568 36.428 117.047 36.4803C115.977 36.4803 115.507 36.3496 115.52 35.0818C115.598 29.3438 115.585 23.6058 115.546 17.8678C115.494 10.1693 121.002 3.29414 127.515 1.046C136.338 -1.99944 146.427 1.72567 150.395 10.8097C151.413 13.1363 151.948 15.6197 151.961 18.1684C151.987 23.8019 151.922 29.4353 152 35.0687C152.013 36.3365 151.556 36.4803 150.473 36.4803C144.848 36.428 139.222 36.4542 133.597 36.4542H133.61Z" fill="currentColor"/>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div class="header-navi">
+                    <ul class="header-navi-list">
+                        <li class="header-navi-link">
+                            <a href="./" class="txt txt-16 hover-line">HOME</a>
+                        </li>
+                        <li class="header-navi-link">
+                            <a href="./work" class="txt txt-16 hover-line">WORK</a>
+                        </li>
+                        <li class="header-navi-link">
+                            <a href="./about.html" class="txt txt-16 hover-line">ABOUT</a>
+                        </li>
+                    </ul>
+                    <a class="header-navi-toggle" href="#">
+                        <div class="header-navi-toggle-ic light active">
+                            <svg width="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.82913 10.0001C5.82913 12.3009 7.70079 14.1726 10.0016 14.1726C12.3025 14.1726 14.1741 12.3009 14.1741 10.0001C14.1741 7.69925 12.3025 5.82758 10.0016 5.82758C7.70079 5.82758 5.82913 7.69925 5.82913 10.0001ZM9.16663 15.8334H10.8333V18.3334H9.16663V15.8334ZM9.16663 1.66675H10.8333V4.16675H9.16663V1.66675ZM1.66663 9.16675H4.16663V10.8334H1.66663V9.16675ZM15.8333 9.16675H18.3333V10.8334H15.8333V9.16675Z" fill="currentColor"/>
+                                <path d="M4.6975 16.4817L3.51917 15.3034L5.28666 13.5359L6.465 14.7142L4.6975 16.4817Z" fill="currentColor"/>
+                                <path d="M13.535 5.28664L15.3034 3.51831L16.4817 4.69664L14.7134 6.46498L13.535 5.28664Z" fill="currentColor"/>
+                                <path d="M5.28666 6.46595L3.51917 4.69762L4.69833 3.51929L6.465 5.28762L5.28666 6.46595Z" fill="currentColor"/>
+                                <path d="M16.4817 15.3032L15.3034 16.4816L13.535 14.7132L14.7134 13.5349L16.4817 15.3032Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="header-navi-toggle-ic dark">
+                            <svg width="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 9.83925C8.9515 8.79033 8.2374 7.45411 7.94802 5.9995C7.65864 4.54487 7.80694 3.03711 8.37417 1.66675C6.75689 1.98512 5.27134 2.77867 4.1075 3.94591C0.853329 7.20008 0.853329 12.4767 4.1075 15.7309C7.36249 18.9859 12.6383 18.9851 15.8933 15.7309C17.0603 14.5672 17.8538 13.082 18.1725 11.4651C16.8021 12.0322 15.2944 12.1804 13.8398 11.8911C12.3852 11.6017 11.049 10.8877 10 9.83925Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <span class="header-navi-toggle-circle "></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="line line-fluid line-fluid-bot"></div>
+        <div class="line line-mid"></div>
+    </header>
+
+    <main class="main" data-barba="container" data-barba-namespace="about">
+        <h1 class="heading">ABC ABout</h1>
+    </main>
+    <footer class="footer">
+
+    </footer>
+    <script src="js/libs/SplitText.js" type="text/javascript"></script>
+    <script src="js/libs/swiper-bundle.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

@@ -1,35 +1,44 @@
 {
-	"name": "Koma-Portfolio",
-	"version": "1.0.0",
-	"description": "",
-	"source": "./src/index.html",
-	"staticFiles": {
-		"staticOutPath": "./assets",
-		"staticPath": "./assets"
-	},
-	"targets": {},
-	"scripts": {
-		"clear": "rimraf dist .parcel-cache",
-		"dev": "yarn clear && cross-env PARCEL_WORKERS=1 parcel -p 3000",
-		"build": "yarn clear && cross-env PARCEL_WORKERS=1 parcel build --no-cache --no-content-hash --public-url ./ --no-scope-hoist",
-		"server": "nodemon server.js",
-		"start": "concurrently \"yarn dev\" \"yarn server\""
-	},
-	"type": "commonjs",
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"cross-env": "^7.0.3",
-		"dotenv": "^16.4.1",
-		"parcel": "^2.12.0",
-		"parcel-reporter-static-files-copy": "^1.5.3",
-		"rimraf": "^4.0.0",
-		"sharp": "^0.31.1",
-		"stripe": "^14.14.0"
-	},
-	"browserslist": "> 0.5%, last 2 versions, not dead, Safari 14",
-	"dependencies": {
-		"@parcel/transformer-sass": "^2.12.0",
-		"cors": "^2.8.5"
-	}
+  "name": "Koma-Portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "source": "./src/index.html",
+  "staticFiles": {
+    "staticOutPath": "./assets",
+    "staticPath": "./assets"
+  },
+  "targets": {},
+  "scripts": {
+    "clean": "rimraf dist .parcel-cache .cache node_modules",
+    "clear": "rimraf dist .parcel-cache .cache",
+    "dev": "yarn clear && cross-env PARCEL_WORKERS=1 parcel -p 3000",
+    "build": "yarn clear && cross-env PARCEL_WORKERS=1 parcel build --no-cache --no-content-hash --public-url ./ --no-scope-hoist",
+    "server": "nodemon -e js,json --ignore dist/ --ignore .parcel-cache/ --ignore assets/ server.js",
+    "start": "concurrently \"yarn dev\" \"yarn server\""
+  },
+  "type": "commonjs",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@barba/core": "^2.10.0",
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.1",
+    "nodemon": "^2.0.20",
+    "parcel": "^2.12.0",
+    "sass": "^1.32.0",
+    "parcel-reporter-static-files-copy": "^1.5.3",
+    "rimraf": "^4.0.0",
+    "sharp": "^0.33.4",
+    "stripe": "^14.14.0",
+    "@parcel/transformer-sass": "^2.12.0",
+    "@studio-freight/lenis": "^1.0.42",
+    "express": "^4.19.2",
+    "gsap": "^3.12.5",
+    "jquery": "^3.7.1"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead, Safari 14",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }

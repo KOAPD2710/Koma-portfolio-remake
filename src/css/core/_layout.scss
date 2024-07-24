@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +7,18 @@
 
 //Font
 html {
-    --fs-global: 0.5787037037vw;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-kerning: none;
     -webkit-text-rendering: optimizeSpeed;
     text-rendering: optimizeSpeed;
-    font-family: 'Saans';
+    
+    --fs-global: 0.6944444444444444vw;
+    font-family: 'NeueMachina', sans-serif;
     font-size: var(--fs-global);
+    color: var(--cl-black);
+    background-color: var(--cl-white);
 }
 html.lenis {
     height: auto;
@@ -77,12 +81,129 @@ button {
 .swiper-slide {
     height: auto;
 }
+.marquee {
+    position: relative;
+    padding-block: 2rem;
+    display: flex;
+    contain: paint;
 
+    &-txt {
+        line-height: 1em !important;
+    }
+
+    &-logo {
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow: hidden;
+
+        @include size(4rem);
+        @include logoCl;
+
+        &-item {
+            position: relative;
+            grid-column: 1/2;
+            grid-row: 1/2;
+            display: flex;
+
+            &.logo-K {
+                z-index: 4;
+            }
+            &.logo-O {
+                z-index: 2;
+            }
+            &.logo-M {
+                z-index: 3;
+            }
+            &.logo-A {
+                z-index: 1;
+            }
+        }
+    }
+    &-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &-item {
+        display: flex;
+        align-items: center;
+        column-gap: 4rem;
+        padding-left: 4rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+}
+
+.circle-svg {
+    .circle {
+        &-smile {
+            color: $cl-red;
+        }
+
+        &-text {
+
+        }
+    }
+}
+
+html {
+    --line-width: 2px;
+    --heading-width: 62rem;
+    --text-width: 50rem;
+}
 
 .line {
-    // background-color: rgba($cl-heading, 0.10);
-    width: 100%;
-    height: 1px;
+    background-color: var(--cl-black);
+    @include size(100%, var(--line-width));
+
+    &-fluid {
+        position: absolute;
+
+        &-top {
+            top: calc(var(--line-width)/ -2);
+            left: 0;
+        }
+        &-bot {
+            bottom: calc(var(--line-width)/ -2);
+            left: 0;
+        }
+    }
+
+    &-mid {
+        position: absolute;
+        top: 0px;
+        left: calc(50% - var(--line-width)/2);
+        @include size(var(--line-width), 100%);
+    }
+}
+
+.hover {
+
+    &-line {
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            display: block;
+            @include size(100%, var(--line-width));
+
+            transform: scaleX(0);
+            background-color: var(--cl-black);
+
+            transform-origin: right;
+            transition: transform ease-in .3s;
+        }
+
+        &:hover::before {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+    }
 }
 
 .custome-scroll {

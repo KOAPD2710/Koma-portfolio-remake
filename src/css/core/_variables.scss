@@ -1,0 +1,17 @@
+
+$cl-black: #222222;
+$cl-white: #FDFBF3;
+$cl-red: #FF4949;
+$cl-blue: #0073C6;
+$cl-green: #00A167;
+
+html {
+    &[data-theme=lightMode] {
+        --cl-black: #{$cl-black};
+        --cl-white: #{$cl-white};
+    }
+    &[data-theme=darkMode] {
+        --cl-black: #{$cl-white};
+        --cl-white: #{$cl-black};
+    }
+}

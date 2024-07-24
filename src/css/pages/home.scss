@@ -1,0 +1,108 @@
+
+.home {
+    &-hero {
+        position: relative;        
+        display: flex;
+        height: 100vh;
+        z-index: 1;
+
+        @include logoCl;
+
+        &-wrap {
+            display: flex;
+            align-self: end;
+            column-gap: 2.73rem;
+            margin-bottom: var(--container-padding);
+
+            width: 100%;
+        }
+
+        &-ic {
+            display: flex;
+            flex-grow: 1;
+
+            &.logoK {
+                margin-right: -2.73rem;
+            }
+        }
+    }
+    
+    &-preamble {
+        position: relative;
+        z-index: 2;
+
+        background: rgba(var(--cl-white), .9);
+        backdrop-filter: blur(6rem);
+
+        &-wrap {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding-bottom: 15rem;
+        }
+
+        &-title {
+            max-width: var(--heading-width);
+
+            &-wrap {
+                grid-column: 1/2;
+                padding-top: var(--container-padding);
+            }
+        }
+
+        &-content {
+            position: relative;
+            padding-left: var(--container-padding);
+            padding-top: var(--container-padding);
+            padding-bottom: var(--container-padding);
+
+            &-wrap {
+                margin-right: calc(var(--container-padding) * -1);
+            }
+
+            &-txt {
+                max-width: var(--text-width);
+
+                .embed-svg {
+                    display: inline-block;
+                    width: 1.5rem;
+                    margin-right: 2.5rem;
+                }
+            }
+
+            @include logoCl;
+        }
+    }
+
+    &-someshit {
+        height: 300vh;
+
+        contain: paint;
+        
+        &-stick {
+            position: sticky;
+            top: 0;
+            @include size(100%, 100vh);
+        }
+
+        &-circle {
+            display: flex;
+            position: absolute;
+
+            width: 85rem;
+
+            &.top {
+                right: 0;
+                transform: translate(50%, -50%);
+            }
+            &.bot {
+                left: 0;
+                bottom: 0;
+                transform: translate(-50%, 50%);
+            }
+        }
+    }
+}
+
+.test {
+    height: 300vh;
+}

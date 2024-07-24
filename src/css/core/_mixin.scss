@@ -1,3 +1,5 @@
+@import 'variables';
+
 // @mixin lg {
 // 	@media screen and (max-width: $lg-min) {
 // 		@content;
@@ -39,6 +41,18 @@
 @mixin size($w, $h: $w) {
 	width: $w;
 	height: $h;
+}
+
+@mixin logoCl() {
+	.logoK {
+        color: $cl-red;
+    }
+    .logoM {
+        color: $cl-green;
+    }
+    .logoA {
+        color: $cl-blue;
+    }
 }
 // @mixin keyframes($animation-name) {
 // 	@-webkit-keyframes #{$animation-name} {
