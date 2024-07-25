@@ -2,7 +2,7 @@
     --fs-h0: 12rem;
     --lh-h0: .9em;
 
-    --fs-h1: 80rem;
+    --fs-h1: 8rem;
     --lh-h1: 1em;
 
     --fs-h2: 4rem;
@@ -24,13 +24,19 @@ $txtSizes: 16, 28;
         }
     }
     &-reg {
-        font-weight: 400;
+        font-weight: normal !important;
     }
     &-med {
-        font-weight: 500;
+        font-weight: 500 !important;
+    }
+    &-semibold {
+        font-weight: 600 !important;
     }
     &-bold {
-        font-weight: 700;
+        font-weight: bold !important;
+    }
+    &-ultrabold {
+        font-weight: 800 !important;
     }
 }
 

@@ -1,11 +1,12 @@
 
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
-    z-index: 100000000;
+    z-index: 998;
 
     @include size(100%, auto);
+    background-color: var(--cl-white);
 
     &-wrap {
         display: grid;

@@ -11,7 +11,7 @@
   "scripts": {
     "clean": "rimraf dist .parcel-cache .cache node_modules",
     "clear": "rimraf dist .parcel-cache .cache",
-    "dev": "yarn clear && cross-env PARCEL_WORKERS=1 parcel -p 3000",
+    "dev": "yarn clear && cross-env PARCEL_WORKERS=1 parcel -p 3000 --dist-dir dist",
     "build": "yarn clear && cross-env PARCEL_WORKERS=1 parcel build --no-cache --no-content-hash --public-url ./ --no-scope-hoist",
     "server": "nodemon -e js,json --ignore dist/ --ignore .parcel-cache/ --ignore assets/ server.js",
     "start": "concurrently \"yarn dev\" \"yarn server\""

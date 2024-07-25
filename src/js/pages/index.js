@@ -7,6 +7,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 import initGlobal from '../global/index';
 import initMarquee from '../global/marquee';
+import initFooter from "../global/footer";
+import initAppendHTML from "../global/append";
 
 import home from './home/index.js';
 import about from './about/index.js';
@@ -21,6 +23,14 @@ const initScriptPage = () => {
             trigger.kill();
         });
     }
+    function refreshAllScrollTrigger() {
+        let triggers = ScrollTrigger.getAll();
+        triggers.forEach(trigger => {
+            trigger.update(true);
+            trigger.refresh(true);
+        });
+    }
+
     barba.init({
         preventRunning: true,
         transitions: [{
@@ -29,6 +39,8 @@ const initScriptPage = () => {
             once(data) {
                 initGlobal()
                 initMarquee(data)
+                initAppendHTML(data)
+                initFooter()
             },
             leave(data) {
                 gsap.to(data.current.container, {
@@ -37,23 +49,27 @@ const initScriptPage = () => {
             },
             enter(data) {
                 gsap.from(data.next.container, {
-                    opacity: 0
+                    opacity: 0,
+                    onComplete: () => {
+                        refreshAllScrollTrigger()
+                    }
                 });
+            },
+            afterEnter() {
             },
             async after(data) {
                 initMarquee(data)
+                initAppendHTML(data)
             },
             async beforeLeave(data) {
             },
             async leave(data) {
-                removeAllScrollTrigger();
             },
             async afterLeave(data) {
             }
         }],
         views: VIEWS
     });
-    // console.log(barba);
 }
 
 export {

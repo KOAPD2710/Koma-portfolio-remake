@@ -1,0 +1,79 @@
+.footer {
+    &-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+
+        height: 100vh;
+        contain: paint;
+
+
+        .marquee {
+            position: sticky;
+            top: 0;
+        }
+
+        &-sticky {
+            height: 200vh;
+            flex-shrink: 0;
+        }
+
+        &-container {
+            position: sticky;
+            top: 8.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            height: calc(100vh - 8.5rem);
+        }
+        &-work {
+            font-size: 23rem;
+            line-height: 1em;
+            text-transform: uppercase;
+            font-style: italic;
+            margin-bottom: -4rem;
+        }
+
+        &-withme {
+            font-size: 16.8rem;
+            line-height: 1em;
+            text-transform: uppercase;
+        }
+    }
+
+    &-git {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        z-index: 2;
+        background-color: var(--cl-white);
+
+        &-container {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            flex-grow: 1;
+        }
+
+        &-left {
+            display: flex;
+            flex-direction: column;
+
+            padding-block: var(--container-padding);
+
+            &-logo {
+                display: flex;
+                
+                &-link {
+                    height: 5.8rem;
+
+                    @include logoCl;
+                }
+            }
+        }
+    }
+}

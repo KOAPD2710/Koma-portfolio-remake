@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-const initAppendHTML = () => {
+const initAppendHTML = (data) => {
     const svgK = `
         <span class="embed-svg">
             <svg class="logoK" width="100%" viewBox="0 0 28.7 28.7">
@@ -8,7 +8,7 @@ const initAppendHTML = () => {
             </svg>
         </span>
     `;
-    $('.txt.svg-text').prepend(svgK);
+    $(data.next.container).find('.txt.svg-text').prepend(svgK);
 }
 
 

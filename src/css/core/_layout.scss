@@ -15,15 +15,21 @@ html {
     text-rendering: optimizeSpeed;
     
     --fs-global: 0.6944444444444444vw;
+    --container-padding: 4rem;
+    
     font-family: 'NeueMachina', sans-serif;
     font-size: var(--fs-global);
+
+
     color: var(--cl-black);
     background-color: var(--cl-white);
+    
 }
 html.lenis {
     height: auto;
 }
 .main {
+    margin-top: -8rem;
     contain: paint;
 }
 .lenis.lenis-smooth {
@@ -58,7 +64,6 @@ button {
 }
 
 .container {
-    --container-padding: 4rem;
     position: relative;
     z-index: 2;
     width: 100%;
@@ -87,7 +92,17 @@ button {
     display: flex;
     contain: paint;
 
+    &.marquee-sm {
+        padding-block: 1rem;
+
+        .marquee-item {
+            column-gap: 1.6rem;
+            padding-left: 1.6rem;
+        }
+    }
+
     &-txt {
+        text-transform: uppercase;
         line-height: 1em !important;
     }
 
@@ -131,6 +146,12 @@ button {
         padding-left: 4rem;
         flex-grow: 0;
         flex-shrink: 0;
+    }
+    &-dot {
+        background-color: var(--cl-black);
+        border-radius: 100vmax;
+
+        @include size(1rem);
     }
 }
 
