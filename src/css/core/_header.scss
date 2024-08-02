@@ -11,15 +11,16 @@
     &-wrap {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        padding-block: 2.2rem;
+        padding-block: 2rem;
     }
 
     &-logo {
         grid-column: 1/2;
         display: flex;
+        align-items: center;
 
         &-link {
-            height: 3.6rem;
+            height: 2.8rem;
 
             @include logoCl;
         }
@@ -36,6 +37,11 @@
         &-list {
             display: flex;
             column-gap: 4rem;
+        }
+
+        &-link {
+            display: flex;
+            align-items: center;
         }
 
         &-toggle {

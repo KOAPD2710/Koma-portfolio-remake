@@ -26,7 +26,7 @@ const initMarquee = (data) => {
         //Animate Marquee
         const isInvert = target.marquee.attr('data-marquee-invert')
         const isHover = target.marquee.attr('data-marquee-hover')
-
+        const isNeedTrigger = target.marquee.attr('data-marquee-trigger') ? true : false
 
         let itemTarget = $(marquee).find('.marquee-item');
 
@@ -34,8 +34,10 @@ const initMarquee = (data) => {
             scrollTrigger: {
                 trigger: target.marquee,
                 start: 'top bottom',
+                endTrigger: isNeedTrigger ? target.marquee.parents('[data-marquee-container]') : null,
                 end: 'bottom top',
-                toggleActions: 'play pause play pause'
+                toggleActions: 'play pause play pause',
+                // markers: true
             },
             repeat: -1,
             // paused: true,
@@ -71,6 +73,7 @@ const initMarquee = (data) => {
                 scrollTrigger: {
                     trigger: target.marquee,
                     start: 'top bottom',
+                    endTrigger: isNeedTrigger ? target.marquee.parents('[data-marquee-container]') : null,
                     end: 'bottom top',
                     toggleActions: 'play pause play pause'
                 },

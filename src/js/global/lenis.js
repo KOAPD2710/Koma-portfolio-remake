@@ -2,6 +2,8 @@ import Lenis from '@studio-freight/lenis';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 let lenis;
 
 const initLenis = () => {
@@ -14,6 +16,15 @@ const initLenis = () => {
         smoothTouch: false,
         touchMultiplier: 2,
     })
+
+    window.lenis = lenis;
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
     lenis.on('scroll', ScrollTrigger.update)
 
     gsap.ticker.add((time) => {
@@ -22,7 +33,16 @@ const initLenis = () => {
     gsap.ticker.lagSmoothing(0)
 }
 
+const stopLenis = () => {
+    lenis.stop()
+}
+const startLenis = () => {
+    lenis.start()
+}
+
 export {
     lenis,
     initLenis,
+    stopLenis,
+    startLenis
 };

@@ -8,14 +8,23 @@
     --fs-h2: 4rem;
     --lh-h2: 1.5em;
 
+    --fs-h3: 3.6rem;
+    --lh-h3: 1.2em;
+
     --fs-16: 1.6rem;
     --lh-16: 1.5em;
 
-    --fs-24: 2.8rem;
-    --lh-24: 1.5em;
+    --fs-20: 2rem;
+    --lh-20: 1.5em;
+
+    --fs-28: 2.8rem;
+    --lh-28: 1.5em;
+
+    --fs-72: 7.2rem;
+    --lh-72: 1.5em;
 }
 
-$txtSizes: 16, 28;
+$txtSizes: 16, 20, 28, 72;
 
 .txt {
     @each $size in $txtSizes {
@@ -38,9 +47,12 @@ $txtSizes: 16, 28;
     &-ultrabold {
         font-weight: 800 !important;
     }
+    &-upper {
+        text-transform: uppercase;
+    }
 }
 
-@for $i from 0 through 2 {
+@for $i from 0 through 3 {
     h#{$i}, .h#{$i} {
         text-transform: uppercase;
         font-weight: 800;

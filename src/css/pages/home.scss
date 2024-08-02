@@ -29,9 +29,11 @@
     
     &-preamble {
         position: relative;
+
+        background-color: var(--cl-white);
         z-index: 2;
 
-        backdrop-filter: blur(6rem);
+        // backdrop-filter: blur(6rem);
 
         &-wrap {
             display: grid;
@@ -60,20 +62,12 @@
 
             &-txt {
                 max-width: var(--text-width);
-
-                .embed-svg {
-                    display: inline-block;
-                    width: 1.5rem;
-                    margin-right: 2.5rem;
-                }
             }
-
-            @include logoCl;
         }
     }
 
     &-someshit {
-        height: 300vh;
+        height: 500vh;
 
         contain: paint;
         
@@ -82,8 +76,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            top: 0;
-            @include size(100%, 100vh);
+            top: var(--header-height);
+            @include size(100%, calc(100vh - var(--header-height)));
         }
 
         &-circle {
@@ -104,16 +98,112 @@
         }
 
         &-card {
-            padding: 2.6rem;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding-block: 2.5vh;
+            padding-inline: calc(2vh * 1.3);
             background-color: $cl-red;
+            opacity: 0;
+            pointer-events: none;
+            contain: paint;
 
+            @include size(100%);
 
-            @include size(45vh, 60vh);
+            transition: transform .5s ease-out;
+            will-change: transform;
 
+            &.active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            @for $i from 1 through 4 {
+                &:nth-child(#{$i}) {
+                    z-index: 10 - $i;
+                }
+            }
+
+            &-rotate {
+                @include size(100%);
+                will-change: transform;
+                perspective: 1500px;
+            }
+
+            &-wrapper {
+                position: relative;
+                
+                perspective: 1500px;
+                @include size(45vh, 55vh);
+
+                &.flip-1 {
+                    .home-someshit-card.card-front {
+                        transform: rotateY(180deg);
+                    }
+                    .home-someshit-card.card-back {
+                        transform: rotateY(360deg);
+                    }
+
+                    &.flip-2 {
+                        .home-someshit-card.card-front {
+                            transform: rotateY(360deg);
+                        }
+                        .home-someshit-card.card-back {
+                            transform: rotateY(540deg);
+                        }
+                        &.flip-3 {
+                            .home-someshit-card.card-front {
+                                transform: rotateY(540deg);
+                            }
+                            .home-someshit-card.card-back {
+                                transform: rotateY(720deg);
+                            }
+                        }
+                    }
+                }
+                
+                
+            }
+
+            &-txt {
+                align-self: start;
+                font-size: 4vh;
+                line-height: 1em;
+                flex-shrink: 0;
+            }
 
             &-logo {
-                height: 2.1rem;
-                color: rgba(var(--cl-white), .1);
+                display: flex;
+                width: 35vh;
+                // filter: drop-shadow(var(--cl-black) 0rem 0rem 0px);
+            }
+
+            &.card-front {
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            &.card-back {
+                z-index: -1 !important;
+                transform: rotateY(180deg);
+            }
+
+            &.designer {
+                background-color: var(--cl-black);
+                color: var(--cl-white);
+            }
+            &.developer {
+                background-color: $cl-red;
+                color: var(--cl-black);
+            }
+            &.interactions {
+                background-color: $cl-green;
+                color: var(--cl-white);
+            }
+            &.visuals {
+                background-color: $cl-blue;
+                color: var(--cl-black);
             }
         }
     }

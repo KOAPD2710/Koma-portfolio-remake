@@ -1,11 +1,15 @@
 import $ from 'jquery';
+
+import { parseRem, typeOpts } from '../helper/index';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { SplitText } from "../libs/SplitText";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
+let FooterScrollTrigger = []
 
-const initFooter = () => {
+const InitFooter = () => {
     const HandleMarquee = () => {
         const targetData = $('.footer').find('.marquee');
         targetData.each((__, marquee) => {
@@ -42,6 +46,10 @@ const initFooter = () => {
                 repeat: -1,
             })
 
+            tlMarquee.addLabel("global", '1');
+
+            FooterScrollTrigger.push(tlMarquee)
+
             const speed = 200;
 
             tlMarquee.to(itemTarget, {
@@ -77,6 +85,8 @@ const initFooter = () => {
                     },
                     repeat: -1
                 })
+                tlLogo.addLabel("global", '1');
+                FooterScrollTrigger.push(tlLogo)
 
                 const easing = "power2.inOut";
                 const duration = 1.6;
@@ -130,11 +140,96 @@ const initFooter = () => {
             }
         })
     }
-    HandleMarquee()
 
-    const HandleStickyWWM = () => {
+    const HandleSocailLink = () => {
+        const targetActive = {
+            link: $('.footer-git-right-content-social-link'),
+            txt: $('.footer-git-right-content-social-link-txt'),
+        }
+
+        const targetLink = {
+            all: $('.footer-git-right-content-info-link'),
+        }
+
+        const HandleActive = (idx) => {
+            targetActive.txt.removeClass('active')
+            targetActive.link.eq(idx).find('.footer-git-right-content-social-link-txt').addClass('active')
+
+            let tl = gsap.timeline()
+
+            tl
+                .to(targetLink.all, {
+                    yPercent: idx * -100,
+                    ease: 'power1.inOut',
+                    duration: .4,
+                    overwrite: true
+                })
+            tl.addLabel("global", '1');
+            FooterScrollTrigger.push(tl)
+        }
+
+        targetActive.link.on('click', function (e) {
+            e.preventDefault()
+
+            let idx = $(this).index()
+            HandleActive(idx)
+        })
     }
-    HandleStickyWWM()
+
+    const HandleYear = () => {
+        const year = new Date().getFullYear();
+        $('.footer-git-left-copyright span').text(year)
+    }
+
+
+    const HandleCircle = () => {
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.footer-git .marquee',
+                start: 'bottom bottom',
+                endTrigger: '.footer-git',
+                end: 'top top',
+                scrub: true,
+            }
+        })
+        tl.addLabel("global", '1');
+        FooterScrollTrigger.push(tl)
+
+        tl
+            .from('.footer-git-right-circle', {
+                y: $(window).height() / - 2 - parseRem(30),
+                ease: 'none'
+            })
+
+        let tlSpin = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.footer-git',
+                start: 'top bottom',
+                end: 'bottom top',
+                toggleActions: 'play pause play pause',
+            },
+            repeat: -1,
+        })
+        tlSpin.addLabel("global", '1');
+        FooterScrollTrigger.push(tl)
+
+        tlSpin
+            .to('.footer-git-right-circle svg', {
+                rotate: 360,
+                ease: 'none',
+                duration: 20
+            })
+    }
+
+    HandleSocailLink()
+    HandleMarquee()
+    HandleYear()
+    HandleCircle()
 }
 
-export default initFooter
+const InitLogoFooter = () => {
+    const random = Math.round(Math.random() * 3)
+    $('.footer-git-left-ic').removeClass('active').eq(random).addClass('active')
+}
+
+export { InitFooter, InitLogoFooter, FooterScrollTrigger }
