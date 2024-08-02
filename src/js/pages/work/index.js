@@ -66,29 +66,29 @@ const work = {
             let target = $(data.next.container).find('.work-proj')
 
             const allProjects = target.find('.work-proj-item')
+            let itemsHeight = allProjects.eq(0).height()
 
             allProjects.each((idx, el) => {
+                const targetEl = {
+                    element: $(el),
+                    infoWrapper: $(el).find('.work-proj-info-wrapper'),
+                    thumbCircle: $(el).find('.work-proj-thumb-circle'),
+                    thumbTxt: $(el).find('.work-proj-thumb-txt'),
+                    thumbTxtWrapper: $(el).find('.work-proj-thumb-txt-wrapper'),
+                    thumbTxtContainer: $(el).find('.work-proj-thumb-txt-container'),
+                }
 
                 ScrollTrigger.create({
-                    trigger: el,
-                    start: 'top bottom',
+                    trigger: target,
+                    start: `top+=${idx * itemsHeight} bottom`,
                     once: true,
                     onEnter: () => {
-                        WorkProjFunc(el)
+                        WorkProjAppendHTML()
+                        WorkProjAnimation(el)
                     },
-                    // markers: true
                 })
 
-                const WorkProjFunc = (el) => {
-                    const targetEl = {
-                        element: $(el),
-                        infoWrapper: $(el).find('.work-proj-info-wrapper'),
-                        thumbCircle: $(el).find('.work-proj-thumb-circle'),
-                        thumbTxt: $(el).find('.work-proj-thumb-txt'),
-                        thumbTxtWrapper: $(el).find('.work-proj-thumb-txt-wrapper'),
-                        thumbTxtContainer: $(el).find('.work-proj-thumb-txt-container'),
-                    }
-
+                const WorkProjAppendHTML = () => {
                     //Append HTML
                     let txtCount = targetEl.thumbTxtWrapper.width() / targetEl.thumbTxt.outerWidth() * 2
                     let wrapperCount = targetEl.thumbTxtContainer.height() / targetEl.thumbTxtWrapper.height()
@@ -112,14 +112,17 @@ const work = {
 
                         targetEl.thumbTxtContainer.append(cloner)
                     }
+                }
 
+                const WorkProjAnimation = (el) => {
                     // Animation
                     let tlTranslateY = gsap.timeline({
                         scrollTrigger: {
-                            trigger: targetEl.element,
-                            start: 'top bottom',
-                            end: 'bottom top',
+                            trigger: target,
+                            start: `top+=${idx * itemsHeight} bottom`,
+                            end: `top+=${(idx + 1) * itemsHeight} top`,
                             scrub: 1,
+                            // markers: true
                         }
                     })
 
@@ -139,9 +142,9 @@ const work = {
                     let allWapper = $(el).find('.work-proj-thumb-txt-wrapper')
                     let tlThumbWrapperTxt = gsap.timeline({
                         scrollTrigger: {
-                            trigger: targetEl.element,
-                            start: 'top top+=95%',
-                            end: 'bottom top+=60%',
+                            trigger: target,
+                            start: `top+=${idx * itemsHeight} top+=95%`,
+                            end: `top+=${(idx + 1) * itemsHeight} top+=60%`,
                             scrub: 1,
                             // markers: true
                         }
@@ -158,9 +161,9 @@ const work = {
 
                     let tlThumbContainer = gsap.timeline({
                         scrollTrigger: {
-                            trigger: targetEl.element,
-                            start: 'top top+=95%',
-                            end: 'bottom top',
+                            trigger: target,
+                            start: `top+=${idx * itemsHeight} top+=95%`,
+                            end: `top+=${(idx + 1) * itemsHeight} top`,
                             scrub: 1,
                             // markers: true
                         }
@@ -173,7 +176,6 @@ const work = {
                             ease: 'none'
                         })
                 }
-                // WorkProjFunc(el)
             })
         }
         WorkProj(data)
