@@ -76,7 +76,7 @@ const work = {
                     onEnter: () => {
                         WorkProjFunc(el)
                     },
-                    markers: true
+                    // markers: true
                 })
 
                 const WorkProjFunc = (el) => {
