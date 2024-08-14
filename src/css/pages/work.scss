@@ -112,7 +112,6 @@
         }
 
         &-title {
-
             &-link {
                 margin-bottom: 6rem;
             }
@@ -120,6 +119,16 @@
 
         &-sub {
             margin-bottom: 1.2rem;
+        }
+
+        &-content {
+            &-des  {
+                margin-bottom: 2rem;
+            }
+
+            a {
+                display: inline;
+            }
         }
 
         &-thumb {
@@ -155,7 +164,7 @@
             }
 
             &-txt {
-                line-height: 1.9em;
+                line-height: 1.5em;
                 font-size: 5rem;
                 padding-inline: 1.8rem;
                 white-space: nowrap;

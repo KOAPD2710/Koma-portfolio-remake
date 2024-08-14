@@ -112,6 +112,7 @@ button {
     position: relative;
     padding-block: 2rem;
     display: flex;
+    justify-content: center;
     contain: paint;
 
     &.marquee-sm {
@@ -293,6 +294,7 @@ html {
 
     &.isScrolling {
         opacity: 1;
+        transition: opacity .1s ease-out;
     }
 
     &-inner {

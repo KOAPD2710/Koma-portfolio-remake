@@ -40,16 +40,17 @@ const initMarquee = (data) => {
                 // markers: true
             },
             repeat: -1,
-            // paused: true,
+            // paused: true
         })
 
         const speed = 200;
 
-        tlMarquee.to(itemTarget, {
-            xPercent: isInvert == 'true' ? 100 : -100,
-            duration: target.item.width() / speed,
-            ease: 'none'
-        })
+        tlMarquee
+            .to(itemTarget, {
+                xPercent: isInvert == 'true' ? 100 : -100,
+                duration: target.item.outerWidth() / speed,
+                ease: 'none'
+            })
         if (isHover == 'true') {
             target.marquee.on('mouseenter', () => {
                 gsap.to(tlMarquee, { timeScale: 0.4, duration: 0.8 })

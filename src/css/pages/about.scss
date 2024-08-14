@@ -1,0 +1,178 @@
+
+
+.about {
+    &-hero {
+        position: relative;
+        height: calc(100vh - 0.15rem);
+        padding-top: var(--header-height);
+
+        &-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            height: 100%;
+        }
+
+        &-left {
+            grid-column: 1/2;
+            padding-top: var(--container-padding);
+            padding-left: var(--container-padding);
+        }
+        &-title  {
+            max-width: var(--heading-width);
+        }
+
+        &-right {
+            display: flex;
+            flex-direction: column;
+            grid-column: 2/3;
+            overflow: hidden;
+
+            .marquee {
+                // flex-grow: 0;
+                // flex-shrink: 0;
+            }
+        }
+
+        &-img {
+            // flex-shrink: 0;
+            flex-grow: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                position: absolute;
+            }
+        }
+    }
+
+    &-start {
+        position: relative;
+
+        &-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            min-height: calc(100vh - 2 * var(--header-height));
+        }
+
+        &-left {
+            grid-column: 1/2;
+        }
+
+        &-right {
+            display: flex;
+            flex-direction: column;
+            grid-column: 2/3;
+            height: 100%;
+        }
+
+        &-title {
+            max-width: var(--text-width);
+
+
+            &-container {
+                position: relative;
+                flex-grow: 1;
+
+                padding-block: var(--container-padding);
+                padding-left: var(--container-padding);
+            }
+        }
+
+        &-content {
+            max-width: var(--text-width);
+            
+            &-container {
+                position: relative;
+                flex-shrink: 0;
+                
+                padding-block: var(--container-padding);
+                padding-left: var(--container-padding);
+            }
+        }
+    }
+
+    &-potential {
+        position: relative;
+        background-color: var(--cl-white);
+        contain: paint;
+        z-index: 2;
+
+        &-wrap {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding-bottom: 15rem;
+        }
+
+        &-title {
+            max-width: var(--heading-width);
+
+            &-wrap {
+                grid-column: 1/2;
+                padding-top: var(--container-padding);
+            }
+        }
+
+        &-content {
+            position: relative;
+            padding-left: var(--container-padding);
+            padding-top: var(--container-padding);
+            padding-bottom: var(--container-padding);
+
+            &-wrap {
+                margin-right: calc(var(--container-padding) * -1);
+            }
+
+            &-txt {
+                max-width: var(--text-width);
+            }
+        }
+    }
+
+    &-ava {
+        contain: paint;
+
+        &-container {
+            height: calc(100vh - 2 * var(--header-height));
+
+            padding-top: var(--container-padding);
+            padding-inline: var(--container-padding);
+        }
+
+        &-logo {
+            @include size(15rem);
+
+            &-container {
+                position: relative;
+                display: flex;
+                justify-content: space-evenly;
+
+                @include size(100%);
+            }
+
+            &-wrapper {
+                height: fit-content;
+                perspective: 1500px;
+
+                &.logo {
+                    &-k {
+                        margin-top: 10%;
+                        transform: rotate(-10deg);
+                    }
+                    &-o {
+                        margin-top: 6%;
+                    }
+                    &-m {
+                        margin-top: 4%;
+                        transform: rotate(12deg);
+                    }
+                    &-a {
+                        margin-top: 12%;
+                        transform: rotate(22deg);
+                    }
+                }
+            }
+        }
+    }
+}

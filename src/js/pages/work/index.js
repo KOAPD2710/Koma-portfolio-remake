@@ -73,6 +73,7 @@ const work = {
                     element: $(el),
                     infoWrapper: $(el).find('.work-proj-info-wrapper'),
                     thumbCircle: $(el).find('.work-proj-thumb-circle'),
+                    thumbImg: $(el).find('.work-proj-thumb-img'),
                     thumbTxt: $(el).find('.work-proj-thumb-txt'),
                     thumbTxtWrapper: $(el).find('.work-proj-thumb-txt-wrapper'),
                     thumbTxtContainer: $(el).find('.work-proj-thumb-txt-container'),
@@ -136,6 +137,14 @@ const work = {
                         }, {
                             yPercent: -10,
                             ease: 'none'
+                        }, "<=")
+                        .fromTo(targetEl.thumbImg, {
+                            scale: 1.1,
+                            yPercent: 5,
+                        }, {
+                            scale: 1,
+                            yPercent: 0,
+                            ease: 'power2.inOut'
                         }, "<=")
 
 
