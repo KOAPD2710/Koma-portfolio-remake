@@ -13,7 +13,7 @@ const InitCursor = () => {
         const target = {
             cursor: $('.cursor'),
             inner: $('.cursor-dot-inner'),
-            blob: $('.cursor-blob')
+            blob: $('.cursor-blob'),
         }
 
         let currPos = {
@@ -39,11 +39,19 @@ const InitCursor = () => {
         xSetter(target.cursor.get(0))(lerp(currPos.x, pointerCurr().x, 0.11))
         ySetter(target.cursor.get(0))(lerp(currPos.y, pointerCurr().y, 0.11))
 
-        scaleXSetter(target.blob.get(0))(lerp(currBlob.scaleX, 1 + targetBlob.scale, 0.11))
-        scaleYSetter(target.blob.get(0))(lerp(currBlob.scaleY, 1 - targetBlob.scale, 0.11))
 
-        rotSetter(target.blob.get(0))(targetBlob.rotate)
-        rotSetter(target.blob.find('.cursor-blob-inner').get(0))(-targetBlob.rotate)
+        if ($('[data-cursor]:hover').length) {
+            scaleXSetter(target.blob.get(0))(lerp(currBlob.scaleX, 1 + targetBlob.scale, 0.11))
+            scaleYSetter(target.blob.get(0))(lerp(currBlob.scaleY, 1 - targetBlob.scale, 0.11))
+
+            rotSetter(target.blob.get(0))(targetBlob.rotate)
+            rotSetter(target.blob.find('.cursor-blob-inner').get(0))(-targetBlob.rotate)
+        } else {
+            scaleXSetter(target.blob.get(0))(lerp(currBlob.scaleX, 0, 0.11))
+            scaleYSetter(target.blob.get(0))(lerp(currBlob.scaleY, 0, 0.11))
+        }
+
+
 
 
         requestAnimationFrame(HandleCursor)

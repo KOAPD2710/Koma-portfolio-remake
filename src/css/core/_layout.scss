@@ -341,8 +341,7 @@ html {
         border-radius: 100vmax;
         background-color: $cl-red;
         @include size(16rem);
-        transform: scaleX(3);
-        // transform: rotate(30deg);
+        // opacity: 0;
 
         &-inner {
             display: flex;
