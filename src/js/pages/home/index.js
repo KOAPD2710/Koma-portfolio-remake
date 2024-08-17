@@ -1,7 +1,8 @@
 import $ from 'jquery';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { inView, lerp, parseRem, pointerCurr, rotXGetter, rotXSetter, rotYGetter, rotYSetter, xGetter, xSetter, yGetter, ySetter } from '../../helper/index';
+import { SplitText } from '../../libs/SplitText';
+import { inView, lerp, parseRem, pointerCurr, rotXGetter, rotXSetter, rotYGetter, rotYSetter, typeOpts, xGetter, xSetter, yGetter, ySetter } from '../../helper/index';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -259,6 +260,54 @@ const home = {
             }
         }
         HomeSomeShit()
+
+        function HomeProj(data) {
+            const section = $(data.next.container).find('.home-proj')
+
+            const target = {
+                allItems: section.find('.home-proj-item')
+            }
+
+            let allTl = []
+            target.allItems.each((idx, el) => {
+                const splitTxt = new SplitText($(el).find('.home-proj-item-name'), { ...typeOpts.chars })
+
+                let tl = gsap.timeline({ paused: true })
+
+                tl
+                    .to(splitTxt.chars, {
+                        x: '5rem',
+                        stagger: '.03',
+                        ease: "back.out(3)",
+                        duration: .4
+                    })
+                tl.idx = idx
+
+                allTl.push(tl)
+            })
+
+            let currCl = ['#ff4949', '#0073C6', '#00A167']
+
+            target.allItems.on('pointerenter', function (e) {
+                let index = $(this).index()
+
+                $(allTl).each((idx, el) => {
+                    if (index != idx) {
+                        el.timeScale(1.3).reverse()
+                        $(el).css('--curr-cl', '')
+                    }
+                })
+                allTl[index].timeScale(1).play()
+                $(this).css('--curr-cl', currCl[Math.floor(Math.random() * currCl.length)])
+            })
+
+            target.allItems.on('pointerleave', function (e) {
+                let index = $(this).index()
+                allTl[index].timeScale(1.3).reverse()
+            })
+        }
+
+        HomeProj(data)
     },
     beforeLeave(data) {
         console.log(`leave ${this.namespace}`);

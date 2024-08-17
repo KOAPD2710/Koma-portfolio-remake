@@ -313,21 +313,50 @@ html {
     @include size(0px); 
     z-index: 9999;
     pointer-events: none;
-    mix-blend-mode: difference;
+    // mix-blend-mode: difference;
 
     &-dot {
         position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: var(--cl-black);
+        // background-color: var(--cl-black);
+        border: .15rem solid var(--cl-black);
         border-radius: 100vmax;
         @include size(3.6rem);
 
         &-inner {
-            background-color: var(--cl-white);
+            position: absolute;
+            background-color: var(--cl-black);
             border-radius: 100vmax;
             @include size(.6rem);
+        }
+    }
+
+    &-blob {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100vmax;
+        background-color: $cl-red;
+        @include size(16rem);
+        transform: scaleX(3);
+        // transform: rotate(30deg);
+
+        &-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            @include size(100%);
+
+            &-arr {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include size(8rem);
+            }
         }
     }
 }

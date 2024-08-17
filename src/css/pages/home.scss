@@ -218,6 +218,14 @@
 
             padding-block: 8rem;
             padding-inline: var(--container-padding);
+            transition: color .3s ease-in-out;
+
+
+            &:hover {
+                color: var(--curr-cl);
+            }
+            // @media (hover: hover) {
+            // }
         }
 
         &-marquee {
