@@ -21,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "@barba/core": "^2.10.0",
+    "@barba/prefetch": "^2.2.0",
     "@parcel/transformer-sass": "^2.12.0",
     "@studio-freight/lenis": "^1.0.42",
     "concurrently": "^7.0.0",

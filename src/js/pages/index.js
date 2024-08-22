@@ -1,6 +1,7 @@
 import $ from "jquery";
 
 import barba from '@barba/core';
+import barbaPrefetch from '@barba/prefetch';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -52,7 +53,7 @@ const initScriptPage = () => {
             immediate: true
         })
     }
-
+    barba.use(barbaPrefetch);
     barba.init({
         preventRunning: true,
         transitions: [{
