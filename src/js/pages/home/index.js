@@ -136,6 +136,7 @@ const home = {
 
 
                 const totalCard = $('.home-someshit-card')
+                $('.home-someshit-card-wrapper').removeClass('flip-1', 'flip-2', 'flip-3')
 
                 totalCard.each((idx, el) => {
                     if (idx > 0) {

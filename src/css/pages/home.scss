@@ -67,9 +67,29 @@
     }
 
     &-someshit {
-        height: 500vh;
-
+        height: 700vh;
         contain: paint;
+
+        &-content {
+            position: relative;
+            padding-inline: var(--container-padding);
+            padding-top: var(--container-padding);
+            
+            &-wrapper{
+                position: relative;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            &-right {
+                grid-column: 2/3;
+            }
+
+            &-txt {
+                max-width: var(--text-width);
+                padding-bottom: var(--container-padding);
+            }
+        }
         
         &-stick {
             position: sticky;
@@ -78,6 +98,7 @@
             justify-content: center;
             top: var(--header-height);
             @include size(100%, calc(100vh - var(--header-height)));
+            contain: paint;
         }
 
         &-circle {

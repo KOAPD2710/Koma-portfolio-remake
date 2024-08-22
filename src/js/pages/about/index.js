@@ -10,6 +10,17 @@ const about = {
     afterEnter(data) {
         console.log(`enter ${this.namespace}`);
 
+
+        const AboutStart = (data) => {
+            const target = $(data.next.container).find('.about-start')
+
+            const smileImg = target.find('.about-start-left .img-sticker')
+
+            FluidAnimation(smileImg, { translate: [parseRem(20)], rotate: 30 }, 2)
+        }
+
+        AboutStart(data)
+
         const AboutAva = (data) => {
             const target = $(data.next.container).find('.about-ava')
 
@@ -24,7 +35,7 @@ const about = {
                 if (currRotate != 0) {
                     valNum.rotate = currRotate / 2 + 15
                 }
-                FluidAnimation(targetLogo, valNum)
+                FluidAnimation(targetLogo, valNum, 2)
             })
         }
         AboutAva(data)
