@@ -19,8 +19,8 @@ import initAppendHTML from "../global/append";
 import InitScrollbar from "../global/scrollbar";
 import { initTheme } from "../global/theme";
 
-import home from './home/index.js';
-import about from './about/index.js';
+import home from './home/index';
+import about from './about/index';
 import work from "./work/index";
 
 const VIEWS = [home, about, work];
