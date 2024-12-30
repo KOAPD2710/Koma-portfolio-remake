@@ -9,11 +9,11 @@
   },
   "targets": {},
   "scripts": {
-    "clean": "rimraf dist .parcel-cache .cache node_modules",
-    "clear": "rimraf dist .parcel-cache .cache",
     "dev": "yarn clear && cross-env PARCEL_WORKERS=1 parcel -p 3000 --dist-dir dist",
     "build": "yarn clear && cross-env PARCEL_WORKERS=1 parcel build --no-cache --no-content-hash --public-url ./ --no-scope-hoist",
     "server": "nodemon -e js,json --ignore dist/ --ignore .parcel-cache/ --ignore assets/ server.js",
+    "clean": "rimraf dist .parcel-cache .cache node_modules",
+    "clear": "rimraf dist .parcel-cache .cache",
     "start": "concurrently \"yarn dev\" \"yarn server\""
   },
   "type": "commonjs",
@@ -30,13 +30,14 @@
     "express": "^4.19.2",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
-    "nodemon": "^2.0.20",
+    "nodemon": "^3.1.9",
     "parcel": "^2.12.0",
     "parcel-reporter-static-files-copy": "^1.5.3",
     "rimraf": "^4.0.0",
     "sass": "^1.32.0",
     "sharp": "^0.33.4",
-    "stripe": "^14.14.0"
+    "stripe": "^14.14.0",
+    "svgo": "^3.3.2"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead, Safari 14",
   "dependencies": {
