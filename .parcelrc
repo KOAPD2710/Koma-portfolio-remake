@@ -4,6 +4,7 @@
     "transformers": {
         "*.css": [
             "@parcel/transformer-css"
-        ]
+        ],
+        "*.js": ["@parcel/transformer-js"]
     }
 }
