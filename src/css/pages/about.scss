@@ -151,7 +151,16 @@
     &-ava {
         contain: paint;
 
+        &-bg {
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+        }
+
         &-container {
+            position: relative;
+            z-index: 5;
+
             height: calc(100vh - 2 * var(--header-height));
 
             padding-top: var(--container-padding);
@@ -164,6 +173,7 @@
             &-container {
                 position: relative;
                 display: flex;
+                align-items: center;
                 justify-content: space-evenly;
 
                 @include size(100%);
@@ -175,18 +185,14 @@
 
                 &.logo {
                     &-k {
-                        margin-top: 10%;
                         transform: rotate(-10deg);
                     }
                     &-o {
-                        margin-top: 6%;
                     }
                     &-m {
-                        margin-top: 4%;
                         transform: rotate(12deg);
                     }
                     &-a {
-                        margin-top: 12%;
                         transform: rotate(22deg);
                     }
                 }
