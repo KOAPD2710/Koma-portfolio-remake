@@ -1,6 +1,10 @@
-const express = require('express');
-const Bundler = require('parcel-bundler');
-const path = require('path');
+// const express = require('express');
+// const Bundler = require('parcel-bundler');
+// const path = require('path');
+
+import express from 'express';
+import Bundler from 'parcel-bundler';
+import path from 'path';
 
 const app = express();
 const bundler = new Bundler('src/index.html', {});
