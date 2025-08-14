@@ -23,10 +23,10 @@ const InitFooter = () => {
             let itemCount = (target.marquee.width() + 4. * target.item.width()) / target.item.width();
 
             if (itemCount > parseInt(itemCount)) {
-                for (i = 0; i < itemCount - 1; i++) {
+                Array.from({ length: itemCount - 1 }).forEach(() => {
                     let cloner = target.item.clone();
                     target.wrapper.append(cloner);
-                }
+                })
             }
 
             //Animate Marquee

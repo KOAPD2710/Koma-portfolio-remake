@@ -39,7 +39,7 @@ const work = {
                 })
             }
         }
-        WorkHero(data)
+        // WorkHero(data)
 
 
         const WorkPreamble = (data) => {
@@ -83,6 +83,7 @@ const work = {
                     trigger: target,
                     start: `top+=${idx * itemsHeight} bottom`,
                     once: true,
+                    markers: true,
                     onEnter: () => {
                         WorkProjAppendHTML()
                         WorkProjAnimation(el)
@@ -99,20 +100,19 @@ const work = {
 
                     targetEl.thumbTxtContainer.html('')
 
-                    for (i = 0; i <= txtCount - 1; i++) {
+                    Array.from({ length: txtCount - 1 }).forEach(() => {
                         let cloner = thumbTxtClone.clone()
                         wrapperCloner.append(cloner)
-                    }
-
-                    for (i = 0; i <= wrapperCount + 1; i++) {
+                    })
+                    Array.from({ length: wrapperCount + 1 }).forEach((el, idx) => {
                         let cloner = wrapperCloner.clone()
 
-                        if (Math.floor(i / 2) * 2 === i) {
+                        if (Math.floor(idx / 2) * 2 === idx) {
                             cloner.append(thumbTxtClone.clone())
                         }
 
                         targetEl.thumbTxtContainer.append(cloner)
-                    }
+                    })
                 }
 
                 const WorkProjAnimation = (el) => {

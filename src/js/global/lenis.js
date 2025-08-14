@@ -19,18 +19,17 @@ const initLenis = () => {
 
     window.lenis = lenis;
 
+    gsap.ticker.remove(gsap.updateRoot);
+    gsap.ticker.lagSmoothing(0);
+
     function raf(time) {
         lenis.raf(time);
+        gsap.updateRoot(time / 1000);
         requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
 
     lenis.on('scroll', ScrollTrigger.update)
-
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000)
-    })
-    gsap.ticker.lagSmoothing(0)
 }
 
 const stopLenis = () => {

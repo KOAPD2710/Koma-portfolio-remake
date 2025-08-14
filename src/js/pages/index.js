@@ -27,16 +27,6 @@ const VIEWS = [home, about, work];
 
 const initScriptPage = () => {
 
-    function removeAllScrollTrigger() {
-        let triggers = gsap.globalTimeline.getChildren();
-        triggers.forEach((trigger, idx) => {
-            let globalTrigger = trigger?.labels?.global ? true : false;
-            if (!globalTrigger) {
-                // trigger.kill()
-            }
-        });
-
-    }
     function refreshFooterScrollTrigger() {
         // FooterScrollTrigger.forEach(trigger => {
         //     trigger.scrollTrigger.update();
@@ -84,7 +74,6 @@ const initScriptPage = () => {
                     cancelAnimationFrame(window.animationFrameId);
                     window.animationFrameId = null;
                 }
-                removeAllScrollTrigger()
             },
             enter(data) {
                 gsap.from(data.next.container, {

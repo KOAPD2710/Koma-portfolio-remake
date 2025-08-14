@@ -14,7 +14,7 @@ const home = {
         function HomeHero() {
             ScrollTrigger.create({
                 trigger: '.home-hero',
-                start: 'top bottom',
+                start: 'bottom bottom',
                 once: true,
                 onEnter: () => {
                     HomeHeroFunc()
