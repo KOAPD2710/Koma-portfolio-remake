@@ -83,7 +83,6 @@ const work = {
                     trigger: target,
                     start: `top+=${idx * itemsHeight} bottom`,
                     once: true,
-                    markers: true,
                     onEnter: () => {
                         WorkProjAppendHTML()
                         WorkProjAnimation(el)
